@@ -42,6 +42,10 @@ import Welcome from '@/Jetstream/Welcome.vue';
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 rounded-md px-4 py-2"
                                 >Editar</button>
                             </form>
+
+                            <hr class="my-6">
+
+                            <a href="#" @click.prevent="destroy">Eliminar nota</a>
                         </div>
                     </div>
                 </div>
@@ -70,6 +74,11 @@ import Welcome from '@/Jetstream/Welcome.vue';
         methods:{
             submit(){
                 this.$inertia.put(this.route('notes.update', this.note.id), this.form)
+            },
+            destroy(){
+                if(confirm('¿Desea eliminar?')){
+                    this.$inertia.delete(this.route('notes.update', this.note.id))
+                }
             }
         }
     }

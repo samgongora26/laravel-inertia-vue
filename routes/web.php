@@ -16,7 +16,7 @@ use App\Http\Controllers\NoteController;
 |
 */
 
-Route::view('/', 'index');
+// Route::view('/', 'index');
 
 Route::get('dashboard', [App\Http\Controllers\PageController::class,'dashboard'])
     ->middleware('auth:sanctum')
@@ -25,7 +25,7 @@ Route::get('dashboard', [App\Http\Controllers\PageController::class,'dashboard']
 Route::resource('notes', NoteController::class)
     ->middleware('auth:sanctum');
 
-/* Route::get('/', function () {
+Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -33,7 +33,7 @@ Route::resource('notes', NoteController::class)
         'phpVersion' => PHP_VERSION,
     ]);
 });
- */
+
 
 /* Route::middleware([
     'auth:sanctum',
